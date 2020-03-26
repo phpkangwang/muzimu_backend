@@ -1,0 +1,1741 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "API文档",
+    "description": "网站API",
+    "version": "1.0.0"
+  },
+  "host": "192.168.1.51:10086",
+  "schemes": [
+    "http"
+  ],
+  "basePath": "",
+  "produces": [
+    "application/json"
+  ],
+  "paths": {
+    "/pay/pay/layer-account-list": {
+      "get": {
+        "summary": "层级--列表",
+        "description": "",
+        "parameters": [
+          {
+            "name": "token",
+            "in": "query",
+            "description": "token",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "accountId",
+            "in": "query",
+            "description": "后台用户id",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "tags": [
+          "支付平台"
+        ]
+      }
+    },
+    "/pay/pay/layer-account-add": {
+      "post": {
+        "summary": "层级--增加和修改",
+        "description": "",
+        "parameters": [
+          {
+            "name": "token",
+            "in": "query",
+            "description": "token",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "id",
+            "in": "formData",
+            "description": "表主键id,新增不填，修改必填",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "accountId",
+            "in": "formData",
+            "description": "后台用户id",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "name",
+            "in": "formData",
+            "description": "层及名称",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "sort",
+            "in": "formData",
+            "description": "排序",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "tags": [
+          "支付平台"
+        ]
+      }
+    },
+    "/pay/pay/layer-account-delete": {
+      "get": {
+        "summary": "层级--删除",
+        "description": "只支持单个删除（页面暂时没有这个功能）",
+        "parameters": [
+          {
+            "name": "token",
+            "in": "query",
+            "description": "token",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "id",
+            "in": "query",
+            "description": "id",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "tags": [
+          "支付平台"
+        ]
+      }
+    },
+    "/pay/pay/pay-menu-list": {
+      "get": {
+        "summary": "支付菜单--列表",
+        "description": "",
+        "parameters": [
+          {
+            "name": "token",
+            "in": "query",
+            "description": "token",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "tags": [
+          "支付平台"
+        ]
+      }
+    },
+    "/pay/pay/pay-channel-list": {
+      "get": {
+        "summary": "支付渠道--列表",
+        "description": "",
+        "parameters": [
+          {
+            "name": "token",
+            "in": "query",
+            "description": "token",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "tags": [
+          "支付平台"
+        ]
+      }
+    },
+    "/pay/pay/pay-channel-by-menu": {
+      "get": {
+        "summary": "根据菜单id获取渠道列表",
+        "description": "",
+        "parameters": [
+          {
+            "name": "token",
+            "in": "query",
+            "description": "token",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "menuId",
+            "in": "query",
+            "description": "token",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "tags": [
+          "支付平台"
+        ]
+      }
+    },
+    "/pay/pay/third-platform-list": {
+      "get": {
+        "summary": "第三方平台--列表",
+        "description": "",
+        "parameters": [
+          {
+            "name": "token",
+            "in": "query",
+            "description": "token",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "tags": [
+          "支付平台"
+        ]
+      }
+    },
+    "/pay/pay/third-platform-account-list": {
+      "get": {
+        "summary": "用户第三方平台--列表",
+        "description": "",
+        "parameters": [
+          {
+            "name": "token",
+            "in": "query",
+            "description": "token",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "accountId",
+            "in": "query",
+            "description": "后台用户id",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "tags": [
+          "支付平台"
+        ]
+      }
+    },
+    "/pay/pay/third-platform-account-add": {
+      "post": {
+        "summary": "用户第三方平台--增加和修改",
+        "description": "",
+        "parameters": [
+          {
+            "name": "token",
+            "in": "query",
+            "description": "token",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "accountId",
+            "in": "formData",
+            "description": "后台用户id",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "thirdPlatformId",
+            "in": "formData",
+            "description": "第三方平台id",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "status",
+            "in": "formData",
+            "description": "状态 1可用2不可用",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "tags": [
+          "支付平台"
+        ]
+      }
+    },
+    "/pay/pay/third-platform-account-delete": {
+      "get": {
+        "summary": "用户第三方平台----删除",
+        "description": "只支持单个删除（页面暂时没有这个功能）",
+        "parameters": [
+          {
+            "name": "token",
+            "in": "query",
+            "description": "token",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "id",
+            "in": "query",
+            "description": "id",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "tags": [
+          "支付平台"
+        ]
+      }
+    },
+    "/pay/pay/pay-accept-account-list": {
+      "get": {
+        "summary": "支付收款账户--列表",
+        "description": "",
+        "parameters": [
+          {
+            "name": "token",
+            "in": "query",
+            "description": "token",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "pageNo",
+            "in": "query",
+            "description": "页数",
+            "required": false,
+            "type": "integer"
+          },
+          {
+            "name": "pageSize",
+            "in": "query",
+            "description": "每页数量",
+            "required": false,
+            "type": "integer"
+          },
+          {
+            "name": "id",
+            "in": "query",
+            "description": "ID",
+            "required": false,
+            "type": "integer"
+          },
+          {
+            "name": "status",
+            "in": "query",
+            "description": "状态 1启用 2停用",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "adminAccountId",
+            "in": "query",
+            "description": "后台账户id",
+            "required": false,
+            "type": "integer"
+          },
+          {
+            "name": "acceptMoneyTimes",
+            "in": "query",
+            "description": "排序 desc从大到小 asc 从小到大",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "acceptMoneySum",
+            "in": "query",
+            "description": "排序 desc从大到小 asc 从小到大",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "tags": [
+          "支付平台"
+        ]
+      }
+    },
+    "/pay/pay/bank-list": {
+      "get": {
+        "summary": "银行--列表",
+        "description": "",
+        "parameters": [
+          {
+            "name": "token",
+            "in": "query",
+            "description": "token",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "tags": [
+          "支付平台"
+        ]
+      }
+    },
+    "/pay/pay/admin-zdl-list": {
+      "get": {
+        "summary": "获取总代理--列表",
+        "description": "",
+        "parameters": [
+          {
+            "name": "token",
+            "in": "query",
+            "description": "token",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "tags": [
+          "支付平台"
+        ]
+      }
+    },
+    "/pay/pay/q-r-code-uploaded": {
+      "post": {
+        "summary": "二维码--上传",
+        "description": "",
+        "parameters": [
+          {
+            "name": "token",
+            "in": "query",
+            "description": "token",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "QRCode",
+            "in": "formData",
+            "description": "base64 的图片字符串",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "tags": [
+          "支付平台"
+        ]
+      }
+    },
+    "/pay/pay/pay-accept-account-add": {
+      "post": {
+        "summary": "公司入款账户--添加/修改",
+        "description": "",
+        "parameters": [
+          {
+            "name": "token",
+            "in": "query",
+            "description": "token",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "id",
+            "in": "formData",
+            "description": "id 有值则为修改",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "adminAccountId",
+            "in": "formData",
+            "description": "后台用户id 总后台必传,代理商不传",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "payMenuId",
+            "in": "formData",
+            "description": "菜单id",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "channelId",
+            "in": "formData",
+            "description": "支付渠道id 第三方的时候才有值",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "acceptImage",
+            "in": "formData",
+            "description": "收款人二维码图片 第三方的时候才有值",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "accountName",
+            "in": "formData",
+            "description": "账户名称",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "acceptAccount",
+            "in": "formData",
+            "description": "收款账户",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "acceptName",
+            "in": "formData",
+            "description": "收款人姓名",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "accountNameDefine",
+            "in": "formData",
+            "description": "账户名称别名",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "acceptAccountDefine",
+            "in": "formData",
+            "description": "收款账户别名",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "acceptNameDefine",
+            "in": "formData",
+            "description": "收款人姓名别名",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "bankId",
+            "in": "formData",
+            "description": "银行卡id 账户类型银行账户才有值",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "acceptBankAddress",
+            "in": "formData",
+            "description": "开户行 类型是银行的时候才有值",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "layerOptionJson",
+            "in": "formData",
+            "description": "层次 json",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "payMoneyList",
+            "in": "formData",
+            "description": "快捷支付钱选择列表 如: 100,200,300",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "minMoney",
+            "in": "formData",
+            "description": "最小值",
+            "required": false,
+            "type": "integer"
+          },
+          {
+            "name": "maxMoney",
+            "in": "formData",
+            "description": "最大值",
+            "required": false,
+            "type": "integer"
+          }
+        ],
+        "tags": [
+          "支付平台"
+        ]
+      }
+    },
+    "/pay/pay/pay-accept-account-status": {
+      "post": {
+        "summary": "公司入款账户--修改状态",
+        "description": "",
+        "parameters": [
+          {
+            "name": "token",
+            "in": "query",
+            "description": "token",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "id",
+            "in": "formData",
+            "description": "id",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "status",
+            "in": "formData",
+            "description": "status 1启用 2停用",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "tags": [
+          "支付平台"
+        ]
+      }
+    },
+    "/pay/pay/pay-accept-account-delete": {
+      "post": {
+        "summary": "公司入款账户--删除",
+        "description": "",
+        "parameters": [
+          {
+            "name": "token",
+            "in": "query",
+            "description": "token",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "id",
+            "in": "formData",
+            "description": "id",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "tags": [
+          "支付平台"
+        ]
+      }
+    },
+    "/pay/pay/pay-bank-status-update": {
+      "post": {
+        "summary": "银行列表--修改状态",
+        "description": "",
+        "parameters": [
+          {
+            "name": "token",
+            "in": "query",
+            "description": "token",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "id",
+            "in": "formData",
+            "description": "id",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "status",
+            "in": "formData",
+            "description": "status 1启用 2停用",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "tags": [
+          "支付平台"
+        ]
+      }
+    },
+    "/pay/pay/pay-menu-status-update": {
+      "post": {
+        "summary": "菜单--修改状态",
+        "description": "",
+        "parameters": [
+          {
+            "name": "token",
+            "in": "query",
+            "description": "token",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "id",
+            "in": "formData",
+            "description": "id",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "status",
+            "in": "formData",
+            "description": "status 1启用 2停用",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "tags": [
+          "支付平台"
+        ]
+      }
+    },
+    "/pay/pay/pay-layer-status-update": {
+      "post": {
+        "summary": "层次--修改状态",
+        "description": "",
+        "parameters": [
+          {
+            "name": "token",
+            "in": "query",
+            "description": "token",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "id",
+            "in": "formData",
+            "description": "id",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "status",
+            "in": "formData",
+            "description": "status 1启用 2停用",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "tags": [
+          "支付平台"
+        ]
+      }
+    },
+    "/pay/pay/pay-channel-status-update": {
+      "post": {
+        "summary": "渠道--修改状态",
+        "description": "",
+        "parameters": [
+          {
+            "name": "token",
+            "in": "query",
+            "description": "token",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "id",
+            "in": "formData",
+            "description": "id",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "status",
+            "in": "formData",
+            "description": "status 1启用 2停用",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "tags": [
+          "支付平台"
+        ]
+      }
+    },
+    "/pay/pay/up-pay-status": {
+      "post": {
+        "summary": "订单--修改状态",
+        "description": "",
+        "parameters": [
+          {
+            "name": "token",
+            "in": "query",
+            "description": "token",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "id",
+            "in": "formData",
+            "description": "id",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "tags": [
+          "支付平台"
+        ]
+      }
+    },
+    "/pay/pay/up-pay-failure": {
+      "post": {
+        "summary": "订单--修改状态为失败",
+        "description": "",
+        "parameters": [
+          {
+            "name": "token",
+            "in": "query",
+            "description": "token",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "id",
+            "in": "formData",
+            "description": "id",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "tags": [
+          "支付平台"
+        ]
+      }
+    },
+    "/activity/recharge/recharge-gear-list": {
+      "get": {
+        "summary": "充值档位 获取所有",
+        "description": "",
+        "parameters": [
+          {
+            "name": "token",
+            "in": "query",
+            "description": "token",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "tags": [
+          "充值奖励"
+        ]
+      }
+    },
+    "/activity/recharge/recharge-gear-add": {
+      "post": {
+        "summary": "充值档位 新增修改",
+        "description": "",
+        "parameters": [
+          {
+            "name": "token",
+            "in": "query",
+            "description": "token",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "id",
+            "in": "formData",
+            "description": "id,新增不填，修改必填",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "activeType",
+            "in": "formData",
+            "description": "1单个充值;2累积充值",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "rechargeGear",
+            "in": "formData",
+            "description": "档位名称字符串eg:1_1",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "rechargePrice",
+            "in": "formData",
+            "description": "价格float",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "tags": [
+          "充值奖励"
+        ]
+      }
+    },
+    "/activity/recharge/recharge-gear-delete": {
+      "post": {
+        "summary": "充值档位 删除",
+        "description": "",
+        "parameters": [
+          {
+            "name": "token",
+            "in": "query",
+            "description": "token",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "id",
+            "in": "formData",
+            "description": "id",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "tags": [
+          "充值奖励"
+        ]
+      }
+    },
+    "/activity/recharge/recharge-gear-win-type-list": {
+      "get": {
+        "summary": "充值档位奖励 获取所有",
+        "description": "",
+        "parameters": [
+          {
+            "name": "token",
+            "in": "query",
+            "description": "token",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "tags": [
+          "充值奖励"
+        ]
+      }
+    },
+    "/activity/recharge/recharge-gear-win-type-add": {
+      "post": {
+        "summary": "充值档位奖励 新增修改",
+        "description": "",
+        "parameters": [
+          {
+            "name": "token",
+            "in": "query",
+            "description": "token",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "id",
+            "in": "formData",
+            "description": "id,新增不填，修改必填",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "gameType",
+            "in": "formData",
+            "description": "游戏类型",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "rechargeGear",
+            "in": "formData",
+            "description": "档位名称 下拉列表选中",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "rechargeGearRate",
+            "in": "formData",
+            "description": "奖:中奖百分比  json",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "RateScore",
+            "in": "formData",
+            "description": "放奖百分比",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "tags": [
+          "充值奖励"
+        ]
+      }
+    },
+    "/activity/recharge/recharge-gear-win-type-delete": {
+      "post": {
+        "summary": "充值档位奖励 删除",
+        "description": "",
+        "parameters": [
+          {
+            "name": "token",
+            "in": "query",
+            "description": "token",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "id",
+            "in": "formData",
+            "description": "id",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "tags": [
+          "充值奖励"
+        ]
+      }
+    },
+    "/fivepk/push-management/push-list": {
+      "get": {
+        "summary": "推送列表",
+        "description": "",
+        "parameters": [
+          {
+            "name": "token",
+            "in": "query",
+            "description": "token",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "tags": [
+          "公共"
+        ]
+      }
+    },
+    "/fivepk/push-management/push-add": {
+      "post": {
+        "summary": "推送添加/修改",
+        "description": "",
+        "parameters": [
+          {
+            "name": "token",
+            "in": "query",
+            "description": "token",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "id",
+            "in": "formData",
+            "description": "id 如果有就是修改没有则添加",
+            "required": false,
+            "type": "integer"
+          },
+          {
+            "name": "title",
+            "in": "formData",
+            "description": "标题",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "content",
+            "in": "formData",
+            "description": "内容",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "timingStatus",
+            "in": "formData",
+            "description": "立即发布1 定时2",
+            "required": true,
+            "type": "integer"
+          },
+          {
+            "name": "timingAt",
+            "in": "formData",
+            "description": "定时时间",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "tags": [
+          "公共"
+        ]
+      }
+    },
+    "/fivepk/push-management/push-delete": {
+      "post": {
+        "summary": "推送删除",
+        "description": "",
+        "parameters": [
+          {
+            "name": "token",
+            "in": "query",
+            "description": "token",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "id",
+            "in": "formData",
+            "description": "id",
+            "required": true,
+            "type": "integer"
+          }
+        ],
+        "tags": [
+          "公共"
+        ]
+      }
+    },
+
+    "/pay/pay/tailking-update": {
+      "post": {
+        "summary": "客服地址修改/添加",
+        "description": "",
+        "parameters": [
+          {
+            "name": "token",
+            "in": "query",
+            "description": "token",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "id",
+            "in": "formData",
+            "description": "id 如果是修改则id传值 如果id不存在或者为0则默认为添加数据",
+            "required": false,
+            "type": "integer"
+          },
+          {
+            "name": "name",
+            "in": "formData",
+            "description": "名称",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "address",
+            "in": "formData",
+            "description": "地址",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "tags": [
+          "公共"
+        ]
+      }
+    },
+
+
+    "/fivepk/fg/enter-machine": {
+      "get": {
+        "summary": "FG--上机轨迹",
+        "description": "",
+        "parameters": [
+          {
+            "name": "token",
+            "in": "query",
+            "description": "token",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "pageNo",
+            "in": "query",
+            "description": "页数",
+            "required": true,
+            "type": "integer"
+          },
+          {
+            "name": "pageSize",
+            "in": "query",
+            "description": "每页数量",
+            "required": true,
+            "type": "integer"
+          },
+          {
+            "name": "stime",
+            "in": "query",
+            "description": "开始时间",
+            "required": true,
+            "type": "integer"
+          },
+          {
+            "name": "etime",
+            "in": "query",
+            "description": "结束时间",
+            "required": true,
+            "type": "integer"
+          },
+          {
+            "name": "accountId",
+            "in": "query",
+            "description": "用户id",
+            "required": false,
+            "type": "integer"
+          }
+        ],
+        "tags": [
+          "FG"
+        ]
+      }
+    },
+
+    "/fivepk/fg/record-player": {
+      "get": {
+        "summary": "FG--玩家记录",
+        "description": "",
+        "parameters": [
+          {
+            "name": "token",
+            "in": "query",
+            "description": "token",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "pageNo",
+            "in": "query",
+            "description": "页数",
+            "required": true,
+            "type": "integer"
+          },
+          {
+            "name": "pageSize",
+            "in": "query",
+            "description": "每页数量",
+            "required": true,
+            "type": "integer"
+          },
+          {
+            "name": "stime",
+            "in": "query",
+            "description": "开始时间",
+            "required": true,
+            "type": "integer"
+          },
+          {
+            "name": "etime",
+            "in": "query",
+            "description": "结束时间",
+            "required": true,
+            "type": "integer"
+          },
+          {
+            "name": "accountId",
+            "in": "query",
+            "description": "用户id",
+            "required": false,
+            "type": "integer"
+          }
+        ],
+        "tags": [
+          "FG"
+        ]
+      }
+    },
+
+    "/fivepk/fg/record-game": {
+      "get": {
+        "summary": "FG--游戏记录",
+        "description": "",
+        "parameters": [
+          {
+            "name": "token",
+            "in": "query",
+            "description": "token",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "pageNo",
+            "in": "query",
+            "description": "页数",
+            "required": true,
+            "type": "integer"
+          },
+          {
+            "name": "pageSize",
+            "in": "query",
+            "description": "每页数量",
+            "required": true,
+            "type": "integer"
+          },
+          {
+            "name": "stime",
+            "in": "query",
+            "description": "开始时间",
+            "required": true,
+            "type": "integer"
+          },
+          {
+            "name": "etime",
+            "in": "query",
+            "description": "结束时间",
+            "required": true,
+            "type": "integer"
+          }
+        ],
+        "tags": [
+          "FG"
+        ]
+      }
+    },
+
+
+
+    "/pay/pay-handle/create-order": {
+      "post": {
+        "summary": "创建订单号测试",
+        "description": "",
+        "parameters": [
+          {
+            "name": "accountId",
+            "in": "formData",
+            "description": "id ",
+            "required": false,
+            "type": "integer"
+          },
+          {
+            "name": "money",
+            "in": "formData",
+            "description": "",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "payAcceptAccountId",
+            "in": "formData",
+            "description": "",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "tags": [
+          "公共"
+        ]
+      }
+    },
+
+    "/fivepk/robot/get-robot-list": {
+      "get": {
+        "summary": "获取列表机器人",
+        "description": "",
+        "parameters": [
+          {
+            "name": "token",
+            "in": "query",
+            "description": "token",
+            "required": true,
+            "type": "string"
+          },{
+            "name": "gameType",
+            "in": "query",
+            "description": "gameType",
+            "required": true,
+            "type": "string"
+          },{
+            "name": "room",
+            "in": "query",
+            "description": "room",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "tags": [
+          "公共"
+        ]
+      }
+    },
+
+    "/fivepk/robot/add-one": {
+      "post": {
+        "summary": "添加/修改机器人",
+        "description": "",
+        "parameters": [
+          {
+            "name": "token",
+            "in": "query",
+            "description": "token",
+            "required": true,
+            "type": "string"
+          },{
+            "name": "gameType",
+            "in": "formData",
+            "description": "游戏id",
+            "required": true,
+            "type": "string"
+          },{
+            "name": "room",
+            "in": "formData",
+            "description": "房间配置 暂时直接填2",
+            "required": true,
+            "type": "string"
+          },{
+            "name": "start_time",
+            "in": "formData",
+            "description": "开始时间",
+            "required": true,
+            "type": "string"
+          },{
+            "name": "end_time",
+            "in": "formData",
+            "description": "结束时间",
+            "required": true,
+            "type": "string"
+          },{
+            "name": "robotCount[0]",
+            "in": "formData",
+            "description": "机器人数量区间",
+            "required": true,
+            "type": "string"
+          },{
+            "name": "robotCount[1]",
+            "in": "formData",
+            "description": "机器人数量区间",
+            "required": true,
+            "type": "string"
+          },{
+            "name": "betGroupRange[0]",
+            "in": "formData",
+            "description": "机器人下注门数区间",
+            "required": true,
+            "type": "string"
+          },{
+            "name": "betGroupRange[1]",
+            "in": "formData",
+            "description": "机器人下注门数区间",
+            "required": true,
+            "type": "string"
+          },{
+            "name": "betScoreRange[0]",
+            "in": "formData",
+            "description": "机器人总押注分区间",
+            "required": true,
+            "type": "string"
+          },{
+            "name": "betScoreRange[1]",
+            "in": "formData",
+            "description": "机器人总押注分区间",
+            "required": true,
+            "type": "string"
+          },{
+            "name": "auto_id",
+            "in": "formData",
+            "description": "auto_id 0为添加 其他为修改",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "tags": [
+          "公共"
+        ]
+      }
+    },
+
+    "/fivepk/robot/update-active": {
+      "post": {
+        "summary": "修改状态",
+        "description": "",
+        "parameters": [
+          {
+            "name": "token",
+            "in": "query",
+            "description": "token",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "auto_id",
+            "in": "formData",
+            "description": "auto_id",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "active",
+            "in": "formData",
+            "description": "1:有效;0:无效",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "tags": [
+          "公共"
+        ]
+      }
+    },
+
+    "/fivepk/robot/delete-one": {
+      "post": {
+        "summary": "删除一条",
+        "description": "",
+        "parameters": [
+          {
+            "name": "token",
+            "in": "query",
+            "description": "token",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "auto_id",
+            "in": "formData",
+            "description": "auto_id ",
+            "required": false,
+            "type": "integer"
+          }
+        ],
+        "tags": [
+          "公共"
+        ]
+      }
+    },
+
+    "/fivepk/robot/get-player-info-one": {
+      "get": {
+        "summary": "获取列表机器人",
+        "description": "",
+        "parameters": [
+          {
+            "name": "token",
+            "in": "query",
+            "description": "token",
+            "required": true,
+            "type": "string"
+          },{
+            "name": "gameType",
+            "in": "query",
+            "description": "gameType",
+            "required": true,
+            "type": "string"
+          },{
+            "name": "room",
+            "in": "query",
+            "description": "room",
+            "required": true,
+            "type": "string"
+          },{
+            "name": "accountId",
+            "in": "query",
+            "description": "accountId",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "tags": [
+          "公共"
+        ]
+      }
+    },
+
+    "/fivepk/robot/add-player-info-one": {
+      "post": {
+        "summary": "修改列表机器人",
+        "description": "",
+        "parameters": [
+          {
+            "name": "token",
+            "in": "query",
+            "description": "token",
+            "required": true,
+            "type": "string"
+          },{
+            "name": "gameType",
+            "in": "formData",
+            "description": "gameType",
+            "required": true,
+            "type": "string"
+          },{
+            "name": "room",
+            "in": "formData",
+            "description": "room",
+            "required": true,
+            "type": "string"
+          },{
+            "name": "accountId",
+            "in": "formData",
+            "description": "accountId",
+            "required": true,
+            "type": "string"
+          },{
+            "name": "nextBigAwardTime",
+            "in": "formData",
+            "description": "nextBigAwardTime",
+            "required": true,
+            "type": "string"
+          },{
+            "name": "nextBigAward",
+            "in": "formData",
+            "description": "nextBigAward",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "tags": [
+          "公共"
+        ]
+      }
+    },
+
+    "/fivepk/robot/robot-player-list": {
+      "get": {
+        "summary": "小洛列表",
+        "description": "",
+        "parameters": [
+          {
+            "name": "token",
+            "in": "query",
+            "description": "token",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "pageNo",
+            "in": "query",
+            "description": "pageNo",
+            "required": true,
+            "type": "string"
+          },{
+            "name": "pageSize",
+            "in": "query",
+            "description": "pageSize",
+            "required": true,
+            "type": "string"
+          },{
+            "name": "gameType",
+            "in": "query",
+            "description": "gameType",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "tags": [
+          "公共"
+        ]
+      }
+    },
+
+    "/fivepk/robot/robot-player-add": {
+      "post": {
+        "summary": "小洛添加修改",
+        "description": "",
+        "parameters": [
+          {
+            "name": "token",
+            "in": "query",
+            "description": "token",
+            "required": true,
+            "type": "string"
+          },{
+            "name": "id",
+            "in": "formData",
+            "description": "account_id 用户id 有则修改，0或没有则为添加",
+            "required": false,
+            "type": "string"
+          },{
+            "name": "nickName",
+            "in": "formData",
+            "description": "nickName",
+            "required": true,
+            "type": "string"
+          },{
+            "name": "score",
+            "in": "formData",
+            "description": "score",
+            "required": true,
+            "type": "string"
+          },{
+            "name": "coin",
+            "in": "formData",
+            "description": "coin",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "tags": [
+          "公共"
+        ]
+      }
+    },
+
+    "/fivepk/player/ios-devices-sign": {
+      "get": {
+        "summary": "ios设备和账号列表",
+        "description": "",
+        "parameters": [
+          {
+            "name": "token",
+            "in": "query",
+            "description": "token",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "tags": [
+          "IOS超级签名"
+        ]
+      }
+    },
+    "/fivepk/player/add-ios-devices-sign": {
+      "post": {
+        "summary": "添加App_id",
+        "description": "",
+        "parameters": [
+          {
+            "name": "token",
+            "in": "query",
+            "description": "token",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "appId",
+            "in": "formData",
+            "description": "appId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "password",
+            "in": "formData",
+            "description": "password 密码",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "appIdentifier",
+            "in": "formData",
+            "description": "appIdentifier 标识",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "teamId",
+            "in": "formData",
+            "description": "teamId 团队ID",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "maxNum",
+            "in": "formData",
+            "description": "maxNum 最大账号数",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "tags": [
+          "IOS超级签名"
+        ]
+      }
+    },
+    "/fivepk/player/update-status-devices-sign": {
+      "post": {
+        "summary": "修改状态",
+        "description": "",
+        "parameters": [
+          {
+            "name": "token",
+            "in": "query",
+            "description": "token",
+            "required": true,
+            "type": "string"
+          },{
+            "name": "id",
+            "in": "formData",
+            "description": "id",
+            "required": true,
+            "type": "string"
+          },{
+            "name": "status",
+            "in": "formData",
+            "description": "status 1开启 0关闭",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "tags": [
+          "IOS超级签名"
+        ]
+      }
+    }
+
+  },
+  "definitions": {
+  }
+}

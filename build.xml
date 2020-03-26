@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="api" default="build">
+    <target name="build" depends="check,tar"/>
+    <property name="version-m"  value="1.1" />
+    <property name="version"    value="1.1.0" />
+    <property name="stability"  value="stable" />
+    <property name="releasenotes" value="" />
+    <property name="tarfile"     value="${phing.project.name}.${version}.tar.gz" />
+    <property name="pkgfile"     value="${phing.project.name}.${version}.tgz" />
+    <property name="distfile"    value="dist/${tarfile}" />
+    <property name="tests.dir" value="test" />
+    <fileset id="api.tar.gz" dir="./">
+        <include name="backend/controllers/*"/>
+        <include name="backend/models/*"/>
+        <include name="backend/services/*"/>
+        <include name="backend/views/*"/>
+        <include name="backend/config/params.php"/>
+        <include name="backend/config/bootstrap.php"/>
+        <include name="backend/config/WokermanMain.php"/>
+        <include name="common/models/*"/>
+        <include name="common/services/*"/>
+        <include name="common/config/params.php"/>
+        <include name="vendor/*"/>
+        <include name="console/controllers/*"/>
+        <include name="WorkerMan/*"/>
+    </fileset>
+
+    <target name="check" description="Check variables" >
+        <fail unless="version" message="Version not defined!" />
+        <delete dir="dist" failonerror="false" />
+        <mkdir dir="dist" />
+    </target>
+
+    <target name="tar" depends="check" description="Create tar file for release">
+        <echo msg="Creating distribution tar for ${phing.project.name} ${version}"/>
+        <delete file="${distfile}" failonerror="false"/>
+        <tar destfile="${distfile}" compression="gzip">
+            <fileset refid="api.tar.gz"/>
+        </tar>
+    </target>
+</project>
+

@@ -1,0 +1,22 @@
+
+# yii console commands
+/yii
+/yii_test
+/yii_test.bat
+console/config/main.php
+
+# phpstorm project files
+/.idea
+
+# apidoc
+apidoc/index.html
+
+backend/runtime
+common/runtime/
+backend/web/images
+vendor/workerman/workerman.log
+backend/config/db/
+backend/web/images/
+backend/web/UCBrowserSecureUpdater.xml
+/backend/config/DB
+backend/controllers/fivepk/ConfigurationController.php.rej
